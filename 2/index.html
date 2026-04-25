@@ -155,9 +155,9 @@ var loadingText = document.querySelector("#loading-text");
       const originalOpen = XMLHttpRequest.prototype.open;
       XMLHttpRequest.prototype.open = function (method, url, ...rest) {
           if (url.includes("Build.asm.code.unityweb")) {
-              url = dataUrl;
-          } else if (url.includes("Build.data.unityweb")) {
               url = wasmUrl;
+          } else if (url.includes("Build.data.unityweb")) {
+              url = dataUrl;
           }
           return originalOpen.call(this, method, url, ...rest);
       };
